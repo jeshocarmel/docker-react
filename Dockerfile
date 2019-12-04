@@ -1,5 +1,4 @@
 FROM node:latest AS build
-FROM node:alpine
 
 WORKDIR '/app'
 
