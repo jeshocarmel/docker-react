@@ -7,3 +7,16 @@ before_install:
 
 script:
     - docker run -e CI=true jeshocarmel/docker-react npm run test
+
+deploy:
+    provider: elasticbeanstalk
+    region: "ap-southeast-1"
+    app: "jeshos application"
+    env: "JeshosApplication-env"
+    bucket_name: "elasticbeanstalk-ap-southeast-1-585118910147"
+    bucket_path: "jeshos application"
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: 
+        secure: "$AWS_SECRET_KEY"
